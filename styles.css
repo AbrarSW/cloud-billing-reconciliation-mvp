@@ -1,0 +1,1233 @@
+/* ==========================================================================
+   SBM Enterprise Cloud Platform - Design System & Visual Theme
+   Visual Identity: Saudi Business Machines (SBM) Enterprise Navy & Royal Blue
+   ========================================================================== */
+
+:root {
+  /* SBM Corporate Navy & Royal Blue Palette */
+  --sbm-navy-header: #0F172A;      /* Deep Slate Navy Header */
+  --sbm-navy-accent: #1E3E62;      /* Secondary Navy */
+  --sbm-royal-blue: #0082C8;       /* SBM Corporate Royal Blue */
+  --sbm-royal-hover: #006CA7;      /* Royal Blue Hover */
+  --sbm-blue-light: #EBF5FA;       /* Active navigation light blue tint */
+  --sbm-blue-subtle: #F0F7FF;      /* Light row highlighting */
+
+  /* Neutral Enterprise Canvas */
+  --sbm-bg-main: #F4F6F9;          /* Neutral light enterprise gray canvas */
+  --sbm-surface: #FFFFFF;          /* Crisp White Cards */
+  --sbm-border: #E2E8F0;           /* Clean Slate Border */
+  --sbm-border-subtle: #F1F5F9;    /* Light Dividers */
+
+  /* Typography Colors */
+  --text-primary: #0F172A;         /* Slate Dark Heading & Body */
+  --text-secondary: #475569;       /* Medium Slate */
+  --text-tertiary: #64748B;        /* Muted Slate */
+
+  /* Semantic Status Colors */
+  --status-success: #047857;
+  --status-success-bg: #ECFDF5;
+  --status-success-border: #A7F3D0;
+
+  --status-warning: #B45309;
+  --status-warning-bg: #FFFBEB;
+  --status-warning-border: #FDE68A;
+
+  --status-error: #B91C1C;
+  --status-error-bg: #FEF2F2;
+  --status-error-border: #FECACA;
+
+  --status-info: #0284C7;
+  --status-info-bg: #E0F2FE;
+  --status-info-border: #BAE6FD;
+
+  /* Service Colors for Visual Breakdown */
+  --compute-color: #0082C8;
+  --bigquery-color: #6366F1;
+  --storage-color: #10B981;
+  --network-color: #F59E0B;
+
+  --font-main: 'Google Sans', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+  --sidebar-width: 260px;
+  --header-height: 64px;
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--sbm-bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   1. Enterprise Top Header Bar (Dark Navy SBM Theme)
+   ========================================================================== */
+.sbm-header {
+  height: var(--header-height);
+  background-color: var(--sbm-navy-header);
+  border-bottom: 1px solid #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-toggle-btn {
+  background: none;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.nav-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.sbm-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Official SBM Logo Styling (Original proportions & colors preserved) */
+.sbm-header-logo {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.title-separator {
+  height: 22px;
+  width: 1px;
+  background-color: #334155;
+  margin: 0 4px;
+}
+
+.product-title {
+  font-size: 15px;
+  color: #FFFFFF;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-mvp {
+  background-color: #1E293B;
+  color: #38BDF8;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid #0284C7;
+  letter-spacing: 0.5px;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Powered by Google Cloud Badge (Subtle Secondary Reference) */
+.powered-by-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #E2E8F0;
+}
+
+.powered-by-tag strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.gcp-cloud-logo-small {
+  flex-shrink: 0;
+}
+
+.scope-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.12);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+  color: #F1F5F9;
+}
+
+.scope-label {
+  color: #94A3B8;
+}
+
+.project-tag {
+  font-family: var(--font-mono);
+  background-color: #1E293B;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #7DD3FC;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Prototype Demo Role Switcher */
+.demo-role-switcher-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.demo-tag {
+  font-size: 9px;
+  font-weight: 700;
+  color: #FCA5A5;
+  background-color: #7F1D1D;
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.role-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.role-icon {
+  color: #38BDF8;
+  font-size: 18px;
+}
+
+#role-switcher {
+  border: none;
+  background: transparent;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFFFF;
+  cursor: pointer;
+  outline: none;
+}
+
+#role-switcher option {
+  background-color: #0F172A;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   2. Main Workspace & Left Sidebar Layout
+   ========================================================================== */
+.workspace-body {
+  display: flex;
+  flex: 1;
+}
+
+/* Left Sidebar Navigation (Positioned High Immediately Below Header) */
+.sbm-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--sbm-surface);
+  border-right: 1px solid var(--sbm-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 0; /* Positioned immediately below main header without top whitespace */
+  transition: margin-left 0.3s ease;
+}
+
+.sbm-sidebar.collapsed {
+  margin-left: calc(-1 * var(--sidebar-width));
+}
+
+.sidebar-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  padding: 6px 16px 8px 16px;
+  letter-spacing: 0.8px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 10px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  position: relative;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+  background-color: #F8FAFC;
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background-color: var(--sbm-blue-light);
+  color: var(--sbm-royal-blue);
+  font-weight: 700;
+  border-left-color: var(--sbm-royal-blue);
+}
+
+.nav-item.active .material-symbols-outlined {
+  color: var(--sbm-royal-blue);
+}
+
+.status-dot-badge {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--status-warning);
+  position: absolute;
+  right: 14px;
+}
+
+.sidebar-footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--sbm-border-subtle);
+  margin-top: auto;
+}
+
+.user-persona-info {
+  background-color: #F8FAFC;
+  border: 1px solid var(--sbm-border);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.persona-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: 0.5px;
+}
+
+.persona-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sbm-royal-blue);
+  margin-top: 2px;
+}
+
+.persona-desc {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* Main Viewport */
+.sbm-viewport {
+  flex: 1;
+  padding: 24px 32px;
+  overflow-y: auto;
+}
+
+/* Screen Title Header */
+.screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.title-area h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.title-area .subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.title-area code {
+  font-family: var(--font-mono);
+  background-color: #F1F5F9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #0369A1;
+  font-size: 13px;
+}
+
+.sync-status-pill, .rbac-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--sbm-surface);
+  border: 1px solid var(--sbm-border);
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.rbac-pill {
+  background-color: var(--sbm-blue-light);
+  color: var(--sbm-royal-blue);
+  font-weight: 600;
+  border-color: #BAE6FD;
+}
+
+.rbac-pill.support-role {
+  background-color: var(--status-error-bg);
+  color: var(--status-error);
+  border-color: var(--status-error-border);
+}
+
+.status-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-indicator-dot.success {
+  background-color: var(--status-success);
+}
+
+/* ==========================================================================
+   3. Access Restricted Security Guard
+   ========================================================================== */
+.access-restricted-card {
+  background-color: var(--sbm-surface);
+  border: 1px solid var(--sbm-border);
+  border-left: 6px solid var(--status-error);
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.restricted-icon span {
+  font-size: 48px;
+  color: var(--status-error);
+}
+
+.restricted-content h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.restricted-content p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.allowed-roles-box {
+  background-color: #F8FAFC;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--sbm-border);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.allowed-roles-box span {
+  color: var(--sbm-royal-blue);
+  font-weight: 700;
+}
+
+.demo-tip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px !important;
+  color: var(--sbm-royal-blue) !important;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   4. Card Components & Enterprise Grid
+   ========================================================================== */
+.sbm-card {
+  background-color: var(--sbm-surface);
+  border: 1px solid var(--sbm-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  margin-bottom: 24px;
+}
+
+.card-header {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header.border-bottom {
+  border-bottom: 1px solid var(--sbm-border-subtle);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-title h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.card-title .material-symbols-outlined {
+  color: var(--sbm-royal-blue);
+}
+
+.card-subtitle {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body.p-0 {
+  padding: 0;
+}
+
+/* ==========================================================================
+   5. KPI Cards Grid
+   ========================================================================== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.kpi-card {
+  background-color: var(--sbm-surface);
+  border: 1px solid var(--sbm-border);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.kpi-card.primary-kpi {
+  border-top: 4px solid var(--sbm-royal-blue);
+}
+
+.kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.kpi-title {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.kpi-icon {
+  color: var(--text-tertiary);
+  font-size: 20px;
+}
+
+.kpi-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.kpi-value.text-medium {
+  font-size: 18px;
+}
+
+.kpi-trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.kpi-trend.positive {
+  color: var(--status-success);
+  font-weight: 500;
+}
+
+.kpi-subtext {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* Semantic Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-pending {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning);
+  border: 1px solid var(--status-warning-border);
+}
+
+.status-approved {
+  background-color: var(--status-success-bg);
+  color: var(--status-success);
+  border: 1px solid var(--status-success-border);
+}
+
+.status-rejected {
+  background-color: var(--status-error-bg);
+  color: var(--status-error);
+  border: 1px solid var(--status-error-border);
+}
+
+/* ==========================================================================
+   6. Dashboard Charts & Distribution
+   ========================================================================== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.canvas-container {
+  width: 100%;
+  position: relative;
+}
+
+.service-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.service-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.service-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.service-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.service-color-dot.compute { background-color: var(--compute-color); }
+.service-color-dot.bigquery { background-color: var(--bigquery-color); }
+.service-color-dot.storage { background-color: var(--storage-color); }
+.service-color-dot.network { background-color: var(--network-color); }
+
+.service-cost {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.progress-bar-bg {
+  height: 8px;
+  background-color: #F1F5F9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.progress-bar-fill.compute { background-color: var(--compute-color); }
+.progress-bar-fill.bigquery { background-color: var(--bigquery-color); }
+.progress-bar-fill.storage { background-color: var(--storage-color); }
+.progress-bar-fill.network { background-color: var(--network-color); }
+
+/* ==========================================================================
+   7. Historical Billing Data (Filter & Table)
+   ========================================================================== */
+.filter-card {
+  background-color: var(--sbm-surface);
+  border: 1px solid var(--sbm-border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.sbm-select {
+  padding: 8px 12px;
+  border: 1px solid var(--sbm-border);
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  font-family: var(--font-main);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.sbm-select:focus {
+  border-color: var(--sbm-royal-blue);
+}
+
+.filter-summary {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.sbm-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.sbm-table th {
+  background-color: #F8FAFC;
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--sbm-border);
+}
+
+.sbm-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--sbm-border-subtle);
+  color: var(--text-primary);
+}
+
+.sbm-table tbody tr:hover {
+  background-color: #F8FAFC;
+}
+
+.text-primary { color: var(--sbm-royal-blue) !important; }
+.text-warning { color: var(--status-warning) !important; }
+.font-large { font-size: 18px !important; }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+
+/* ==========================================================================
+   8. Billing Review & Status Stepper & Workflow Components
+   ========================================================================== */
+.stepper-card {
+  padding: 24px;
+}
+
+.stepper-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #E2E8F0;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.step-item.completed .step-circle {
+  background-color: var(--status-success);
+  color: #FFF;
+}
+
+.step-item.active .step-circle {
+  background-color: var(--sbm-royal-blue);
+  color: #FFF;
+}
+
+.step-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-label strong {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.step-label span {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.step-connector {
+  flex: 1;
+  height: 2px;
+  background-color: #E2E8F0;
+  margin: 0 16px;
+}
+
+.step-connector.completed {
+  background-color: var(--status-success);
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.role-badge-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.role-badge-pill.ops {
+  background-color: var(--sbm-blue-light);
+  color: var(--sbm-royal-blue);
+}
+
+.summary-details-box {
+  background-color: #F8FAFC;
+  border: 1px solid var(--sbm-border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--sbm-border-subtle);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: var(--text-secondary);
+}
+
+.ops-action-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sbm-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--sbm-border);
+  border-radius: 6px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  outline: none;
+  resize: vertical;
+}
+
+.sbm-textarea:focus {
+  border-color: var(--sbm-royal-blue);
+}
+
+.action-btn-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sbm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.sbm-btn-primary {
+  background-color: var(--sbm-royal-blue);
+  color: #FFF;
+}
+
+.sbm-btn-primary:hover {
+  background-color: var(--sbm-royal-hover);
+}
+
+.sbm-btn-secondary {
+  background-color: var(--sbm-surface);
+  border: 1px solid var(--sbm-border);
+  color: var(--text-primary);
+}
+
+.sbm-btn-secondary:hover {
+  background-color: #F8FAFC;
+}
+
+.success-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--status-success-bg);
+  color: var(--status-success);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* External Status Box */
+.current-status-box {
+  background-color: #F8FAFC;
+  border: 1px solid var(--sbm-border);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.status-box-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.status-badge-large {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning);
+  border: 1px solid var(--status-warning-border);
+}
+
+.status-box-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.external-process-notice {
+  display: flex;
+  gap: 12px;
+  background-color: var(--sbm-blue-light);
+  border: 1px solid #BAE6FD;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--sbm-royal-blue);
+  margin-bottom: 20px;
+}
+
+/* Demo Status Simulator */
+.demo-status-simulator {
+  background-color: #FFFBEB;
+  border: 1px solid #FDE68A;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 20px;
+}
+
+.demo-sim-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #B45309;
+  margin-bottom: 10px;
+}
+
+.sim-btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.sim-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: var(--font-main);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--sbm-border);
+}
+
+.sim-approve { background-color: #ECFDF5; color: #047857; border-color: #A7F3D0; }
+.sim-reject { background-color: #FEF2F2; color: #B91C1C; border-color: #FECACA; }
+.sim-reset { background-color: #FFF; color: var(--text-secondary); }
+
+/* Audit Timeline */
+.audit-history-section {
+  margin-top: 10px;
+}
+
+.section-subheading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.audit-timeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.audit-timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background-color: var(--sbm-border);
+}
+
+.audit-item {
+  position: relative;
+  font-size: 12px;
+}
+
+.audit-item::before {
+  content: '';
+  position: absolute;
+  left: -18px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--sbm-royal-blue);
+}
+
+.audit-time {
+  color: var(--text-tertiary);
+  font-size: 11px;
+}
+
+.audit-text {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   9. Synchronization & Logs Console
+   ========================================================================== */
+.apigee-status-card {
+  padding: 24px;
+}
+
+.apigee-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--sbm-border-subtle);
+}
+
+.apigee-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.apigee-title h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.apigee-title p {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.apigee-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.apigee-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.metric-label {
+  color: var(--text-tertiary);
+}
+
+.metric-val {
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.diagnostic-card {
+  border-left: 6px solid var(--status-warning);
+}
+
+.icon-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.log-console-box {
+  background-color: #0F172A;
+  color: #E2E8F0;
+  padding: 16px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  max-height: 250px;
+  overflow-y: auto;
+}
